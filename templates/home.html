@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="content">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+                <canvas id="bar-chart" width="800" height="450"></canvas>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+</main>
+
+<script type="text/javascript">
+    new Chart(document.getElementById("bar-chart"), {
+        type: 'bar',
+        data: {
+            labels: ["Monday", "Sunday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [
+                {
+                    label: "Rental (Tens)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#c77850", "#c23850"],
+                    data: [50, 30, 175, 66, 20, 76, 12]
+                }
+            ]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Bike Rentals (Daily)'
+            }
+        }
+    });
+</script>
+
+{% endblock content %}
